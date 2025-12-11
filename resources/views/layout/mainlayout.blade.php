@@ -257,13 +257,11 @@
                     </div>
                 @else
                     {{-- Dropdown สำหรับ Guest (ตามที่ผู้ใช้ร้องขอ) --}}
-                    <div class="dropdown">
+                    {{-- <div class="dropdown">
                         <button class="btn btn-light dropdown-toggle d-flex align-items-center border" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="guestProfileDropdown">
-                            {{-- Icon และชื่อผู้ใช้ (ซ่อนชื่อบน Mobile เล็ก) --}}
                             <i class="bi bi-person-circle me-1 text-secondary" style="font-size: 1.2rem;"></i>
                             <span class="d-none d-sm-block">ชวัลลักษณ์ เพชรอย่างดี</span>
-                            {{-- <span class="d-none d-sm-block">staffname</span> --}}
-                            {{-- <input type="hiddien" class="" name> --}}
+                     
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="guestProfileDropdown">
                             <li>
@@ -272,10 +270,7 @@
                                     <strong class="text-dark">Adminช่าง(Store)</strong>
                                 </div>
                             </li>
-                            {{-- <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item fw-bold text-danger" href="{{ route('logout') ?? url('/logout') }}">
-                                <i class="bi bi-box-arrow-in-right me-2"></i>ออกจากระบบ
-                            </a></li> --}}
+                     
                             <li>
                                 <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                     @csrf
@@ -285,6 +280,38 @@
                                 </form>
                             </li>
                            
+                        </ul>
+                    </div> --}}
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle d-flex align-items-center border" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="guestProfileDropdown">
+                            {{-- Icon --}}
+                            <i class="bi bi-person-circle me-1 text-secondary" style="font-size: 1.2rem;"></i>
+                            
+                            {{-- *** แก้ไขตรงนี้: เรียกชื่อจาก Session *** --}}
+                            <span class="d-none d-sm-block">
+                                {{ Session::get('staffname') }}
+                            </span>
+                            
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="guestProfileDropdown">
+                            <li>
+                                <div class="px-3 pt-2 pb-1 text-muted small">
+                                    สถานะ: <br>
+                                    {{-- *** (แนะนำเพิ่มเติม) แก้สถานะให้ดึงจาก Session ด้วย *** --}}
+                                    <strong class="text-dark">
+                                        {{ Session::get('role') ?? 'Adminช่าง(Store)' }}
+                                    </strong>
+                                </div>
+                            </li>
+                            {{-- ... ส่วนปุ่ม Logout ... --}}
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item fw-bold text-danger">
+                                        <i class="bi bi-box-arrow-in-right me-2"></i>ออกจากระบบ
+                                    </button>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 @endauth
