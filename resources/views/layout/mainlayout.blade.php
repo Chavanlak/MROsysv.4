@@ -283,37 +283,37 @@
                         </ul>
                     </div> --}}
                     <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle d-flex align-items-center border" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="guestProfileDropdown">
-                            {{-- Icon --}}
-                            <i class="bi bi-person-circle me-1 text-secondary" style="font-size: 1.2rem;"></i>
-                            
-                            {{-- *** แก้ไขตรงนี้: เรียกชื่อจาก Session *** --}}
-                            <span class="d-none d-sm-block">
-                                {{ Session::get('staffname') }}
-                            </span>
-                            
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="guestProfileDropdown">
-                            <li>
-                                <div class="px-3 pt-2 pb-1 text-muted small">
-                                    สถานะ: <br>
-                                    {{-- *** (แนะนำเพิ่มเติม) แก้สถานะให้ดึงจาก Session ด้วย *** --}}
-                                    <strong class="text-dark">
-                                        {{ Session::get('role') ?? 'Adminช่าง(Store)' }}
-                                    </strong>
-                                </div>
-                            </li>
-                            {{-- ... ส่วนปุ่ม Logout ... --}}
-                            <li>
-                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item fw-bold text-danger">
-                                        <i class="bi bi-box-arrow-in-right me-2"></i>ออกจากระบบ
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
+    <button class="btn btn-light dropdown-toggle d-flex align-items-center border" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="guestProfileDropdown">
+        {{-- Icon --}}
+        <i class="bi bi-person-circle me-1 text-secondary" style="font-size: 1.2rem;"></i>
+        
+        {{-- *** แก้ไขตรงนี้: เรียกชื่อจาก Session *** --}}
+        <span class="d-none d-sm-block">
+            {{ Session::get('staffname') }}
+        </span>
+        
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="guestProfileDropdown">
+        <li>
+            <div class="px-3 pt-2 pb-1 text-muted small">
+                สถานะ: <br>
+                {{-- *** (แนะนำเพิ่มเติม) แก้สถานะให้ดึงจาก Session ด้วย *** --}}
+                <strong class="text-dark">
+                    {{ Session::get('role') ?? 'Adminช่าง(Store)' }}
+                </strong>
+            </div>
+        </li>
+        {{-- ... ส่วนปุ่ม Logout ... --}}
+        <li>
+            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="dropdown-item fw-bold text-danger">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>ออกจากระบบ
+                </button>
+            </form>
+        </li>
+    </ul>
+</div>
                 @endauth
             </div>
         </div>
@@ -341,11 +341,11 @@
                     </a>
                 </div>
                 <nav class="nav flex-column">
-                    <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ url('/dashboard') }}">
+                    <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ url('/countnotirpair') }}">
                         <i class="bi bi-speedometer2"></i> Dashboard
                     </a>
                     <a class="nav-link {{ request()->is('notirepair') ? 'active' : '' }}"
-                        href="{{ url('/notirepair') }}">
+                        href="{{ url('/noti') }}">
                         <i class="bi bi-list-task"></i> รายการแจ้งซ่อม
                     </a>
                     <a class="nav-link {{ request()->is('notirepair/history') ? 'active' : '' }}"
