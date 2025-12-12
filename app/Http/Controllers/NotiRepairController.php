@@ -455,4 +455,8 @@ class NotiRepairController extends Controller
         $countComplete = StatustrackingRepository::CountCompleteStatus();
         return view('dashborad.dashbord',compact('countComplete'));
     }
+    public static function getClosedJobs(){
+        $closedJob = StatustrackingRepository::closeedJobStatus();
+        return view('',compact('closedJob'));
+    }
 }
