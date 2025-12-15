@@ -73,8 +73,9 @@ class NotirepairRepository{
         return Notirepair::count();
     }
     public static function HistoryNotirepair(){
-        return Notirepair::select('NotirepairId','DateNotirepair','DeatailNotirepair')->get();
-        
+        return Notirepair::select('NotirepairId','DateNotirepair','DeatailNotirepair','equipment.equipmentName')
+        ->leftJoin('equipment','notirepair.equipmentId','=','equipment.equipmentId')
+        ->get();
     }
 
     ///ส่วน dashbod ของ Admin crud 

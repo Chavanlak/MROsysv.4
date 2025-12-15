@@ -433,10 +433,12 @@ class NotiRepairController extends Controller
     }
     //dashbord store 
     public static function NotiRepairHistory(){
+        // $notirepairList = NotirepairRepository::HistoryNotirepair();
+        // $notirepairList = NotirepairRepository::getAllNotirepairByadmin();
         $notirepairList = NotirepairRepository::HistoryNotirepair();
-        $equipmentList = EquipmentRepository::getallEquipment(); //เอาไอดีคนที่กดรับกดปิดงานฝั่งหน้าร้าน
-        
-    return view('dashboad.admin',compact('notirepairList','equipmentList'));
+        // $equipmentList = EquipmentRepository::getallEquipment(); //เอาไอดีคนที่กดรับกดปิดงานฝั่งหน้าร้าน
+        // dd($notirepairList);
+    return view('dashborad.historynoti',compact('notirepairList'));
     }
     //dashbord AdminIt
     public static function ShowallNotirepair(){
@@ -455,8 +457,8 @@ class NotiRepairController extends Controller
         $countComplete = StatustrackingRepository::CountCompleteStatus();
         return view('dashborad.dashbord',compact('countComplete'));
     }
-    public static function getClosedJobs(){
-        $closedJob = StatustrackingRepository::closeedJobStatus();
-        return view('',compact('closedJob'));
-    }
+    // public static function getClosedJobs(){
+    //     $closedJob = StatustrackingRepository::closeedJobStatus();
+    //     return view('',compact('closedJob'));
+    // }
 }

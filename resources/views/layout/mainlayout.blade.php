@@ -349,7 +349,7 @@
                         <i class="bi bi-list-task"></i> รายการแจ้งซ่อม
                     </a>
                     <a class="nav-link {{ request()->is('notirepair/history') ? 'active' : '' }}"
-                        href="{{ url('/noti') }}">
+                        href="{{ url('/history') }}">
                         <i class="bi bi-clock-history"></i> ประวัติการแจ้งซ่อม
                     </a>
                  

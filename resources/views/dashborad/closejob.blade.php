@@ -28,7 +28,7 @@
 <div class="d-mb-none">
     <div class="card-body">
         <button type="submit" class="btn btn-sucees"></button>
-        <i></i> ปิดงาน
+        <i></i> ปิดงาน 
     </div>
 </div>
 @endsection

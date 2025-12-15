@@ -225,3 +225,8 @@ Route::get('/cm',function(){
 
 //dashbord
 Route::get('/countnotirpair',[NotiRepairController::class,'getCountNotirepair']);
+//his
+Route::get('/history',[NotiRepairController::class,'NotiRepairHistory']);
+// Route::get('/history', function () {
+//     return view('dashborad.historynoti');
+// });

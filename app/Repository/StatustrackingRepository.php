@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
 
 use App\Enums\TrackingStatus;
+use Laravel\Sail\Console\PublishCommand;
 // enum AsStringable: string
 enum TrackingStatusEnum: string
 {
@@ -186,19 +187,27 @@ public static function getAllStatusByNotirepairId($notiRepairId){
     return Statustracking::where('NotirepairId')->get();
 
 }
-public static function closeedJobStatus(){
-    
-    $isCompleted =  Statustracking::whereIn('status', [
-        'ซ่อมงานเสร็จเเล้ว | ช่างStore', 
-        'ซ่อมงานเสร็จเเล้ว | Supplier'
-    ])
-    ->distinct('notirepairId')
-    
-    if($isCompleted){
-        Statustracking::select('colsedJobs')->whereNotNull()->get();
+public static function closedJob(){
 
 }
-return $closeJobs;
+public static function trackingrepair(){
+    // $branchname = MastbranchRepository::getBranchName($branchid);
+    
 }
+
+// public static function closeedJobStatus(){
+    
+//     $isCompleted =  Statustracking::whereIn('status', [
+//         'ซ่อมงานเสร็จเเล้ว | ช่างStore', 
+//         'ซ่อมงานเสร็จเเล้ว | Supplier'
+//     ])
+//     ->distinct('notirepairId')
+    
+//     if($isCompleted){
+//         Statustracking::select('colsedJobs')->whereNotNull()->get();
+
+// }
+// return $closeJobs;
+// }
 }
 

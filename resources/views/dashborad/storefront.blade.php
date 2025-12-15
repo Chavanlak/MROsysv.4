@@ -176,9 +176,24 @@
                         // Col 6: จัดการ (10%)
                         { "width": "10%", "targets": 6, "className": "dt-center" } 
                     ],
+                    // "language": {
+                    //     "url": "//cdn.datatables.net/plug-ins/2.0.8/i18n/th.json"
+                    // }
                     "language": {
-                        "url": "//cdn.datatables.net/plug-ins/2.0.8/i18n/th.json"
-                    }
+                            "emptyTable": "ไม่พบข้อมูลในตาราง",
+                            "info": "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
+                            "infoEmpty": "แสดง 0 ถึง 0 จาก 0 รายการ",
+                            "infoFiltered": "(กรองข้อมูล _MAX_ ทุกรายการ)",
+                            "lengthMenu": "แสดง _MENU_ รายการ",
+                            "search": "ค้นหา:",
+                            "zeroRecords": "ไม่พบข้อมูลที่ตรงกัน",
+                            "paginate": {
+                                "first": "หน้าแรก",
+                                "last": "หน้าสุดท้าย",
+                                "next": "ถัดไป",
+                                "previous": "ก่อนหน้า"
+                            }
+                        }
                 });
             }
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NotiRepair;
 use App\Models\Statustracking;
 use App\Repository\AsStringable;
+use App\Repository\MastbranchRepository;
 use App\Repository\NotiRepairRepository;
 use App\Repository\StatustrackingRepository;
 use Illuminate\Http\Request;
@@ -157,8 +158,12 @@ class StatustrackingController extends Controller
         // return $allstatus;
 
     }
-    public static function getItemRecivecomplete(){
-       $complete = StatustrackingRepository::getItemComplte();
-        return redirect('/itemcomplte');
-    } 
+public static function gettrackingrepair(){
+    $branchname = MastbranchRepository::getallBranch();
+    return $branchname;
+}
+    // public static function getItemRecivecomplete(){
+    //    $complete = StatustrackingRepository::getItemComplte();
+    //     return redirect('/itemcomplte');
+    // } 
 }
